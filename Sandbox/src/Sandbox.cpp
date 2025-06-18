@@ -9,7 +9,7 @@ public:
 
 
 Sonic::Application* Sonic::CreateApplication() {
-	return new Sandbox_Application;
+	return new Sandbox_Application();
 }
 
 
