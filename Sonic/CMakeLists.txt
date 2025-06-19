@@ -12,11 +12,16 @@ file(GLOB_RECURSE include_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${source_files} ${include_files})
 
 add_library(Sonic STATIC ${source_files} ${include_files})
+target_precompile_headers(Sonic PRIVATE "src/pch.h")
 
 target_include_directories(Sonic PUBLIC 
 	${VK_SDK_PATH}/Include
 	${CMAKE_CURRENT_SOURCE_DIR}
+	${CMAKE_CURRENT_SOURCE_DIR}/src
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Core
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Vulkan)
 
 target_link_directories(Sonic PUBLIC ${VK_SDK_PATH}/Libs)
+
+add_subdirectory(vendor/glfw)
+target_link_libraries(Sonic PUBLIC glfw)

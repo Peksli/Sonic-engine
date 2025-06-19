@@ -1,4 +1,6 @@
-#include "Macros.h"
+#include "Window/WindowsWindow.h"
+
+#include "pch.h"
 
 
 namespace Sonic {
@@ -16,6 +18,7 @@ namespace Sonic {
 
 		static Application* GetInstance() { return m_Instance; }
 	private:
+		std::unique_ptr<WindowsWindow> m_WindowsWindow;
 		static Application* m_Instance;
 	};
 
