@@ -1,5 +1,5 @@
 #include "Application.h"
-
+#include "Vulkan/VulkanContext.h"
 
 namespace Sonic {
 
@@ -8,6 +8,7 @@ namespace Sonic {
 	Application::Application() {
 		m_Instance = this;
 		m_WindowsWindow = std::make_unique<WindowsWindow>(1400, 900, "Sonic window");
+		VKContext vkcontext;
 	}
 
 
