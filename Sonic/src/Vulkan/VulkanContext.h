@@ -1,6 +1,8 @@
+#pragma once
 #include <vulkan/vulkan.h>
 
 #include "pch.h"
+#include "Debug/VulkanDebugUtils.h"
 
 
 namespace Sonic {
@@ -13,26 +15,10 @@ namespace Sonic {
 		std::vector<const char*> validationLayers = { "VK_LAYER_KHRONOS_validation" };
 		VkInstance instance;
 		VkDebugUtilsMessengerEXT debugMessenger;
+		VulkanDebugUtils debugUtils;
 
-		void setupDebugMessenger();
-		void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& debugCreateInfo);
 		void CreateInstance();
-		bool checkAvailableValidationLayers();
 		std::vector<const char*> getRequiredExtensions();
-		static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
-			VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
-			VkDebugUtilsMessageTypeFlagsEXT messageType,
-			const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData,
-			void* pUserData);
-		VkResult CreateDebugUtilsMessengerEXT(
-			VkInstance instance,
-			const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo,
-			const VkAllocationCallbacks* pAllocator,
-			VkDebugUtilsMessengerEXT* pDebugMessenger);
-		void DestroyDebugUtilsMessengerEXT(
-			VkInstance instance,
-			const VkDebugUtilsMessengerEXT* pDebugMessenger,
-			const VkAllocationCallbacks* pAllocator);
 	};
 
 }
