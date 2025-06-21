@@ -22,7 +22,7 @@ target_include_directories(Sonic PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Core
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Vulkan)
 
-target_link_libraries(Sonic PUBLIC ${VK_SDK_PATH}/Lib/vulkan-1.lib)
+target_link_libraries(Sonic PUBLIC vulkan-1.lib)
 
 add_subdirectory(vendor/glfw)
 target_link_libraries(Sonic PUBLIC glfw)
